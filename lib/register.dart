@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -201,6 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(
             height: 10,
           ),
+          Container(),
           ElevatedButton(
             onPressed: (() {}),
             child: Text(

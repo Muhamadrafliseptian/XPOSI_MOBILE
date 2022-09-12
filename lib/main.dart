@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:samara_xposi/register.dart';
+import 'package:samara_xposi/pagescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,12 +32,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => const PageScreen()));
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: ListView(
         padding: EdgeInsets.all(20.0),
         children: [
-          const SizedBox(
-            height: 20,
-          ),
           Container(
             alignment: Alignment.topCenter,
             height: 300,
