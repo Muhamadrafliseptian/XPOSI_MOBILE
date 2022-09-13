@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:samara_xposi/register.dart';
 import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => const PageScreen()));
+                builder: (BuildContext context) => const HomePage()));
           },
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Register()));
+                        builder: (BuildContext context) => const PageScreen()));
                   },
                 ),
                 GestureDetector(
