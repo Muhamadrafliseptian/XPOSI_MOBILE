@@ -61,7 +61,7 @@ final List<Widget> imageSliders = imgList
           child: Container(
             margin: EdgeInsets.all(5.0),
             child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
                 child: Stack(
                   children: <Widget>[
                     Image.network(item, fit: BoxFit.cover, width: 1000.0),
@@ -94,108 +94,59 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: const Text(
-          "XPOSI By OKTA",
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.blueAccent),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => const MyApp()));
-          },
-          icon: const Icon(
-            Icons.notifications,
-            color: Colors.black,
-          ),
-        ),
-        actions: [
-          PopupMenuButton(
-              offset: const Offset(0, 45),
-              iconSize: 30,
-              icon: const Icon(
-                Icons.account_circle_rounded,
-                color: Colors.black,
-              ),
-              onSelected: (value) {},
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    value: 'Home',
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              child: const Icon(
-                                Icons.account_circle,
-                                color: Colors.black,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const MyApp()));
-                              },
-                              child: const Text(
-                                "Profile",
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem(
-                    value: 'Home',
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              child: const Icon(
-                                Icons.logout,
-                                color: Colors.black,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const MyApp()));
-                              },
-                              child: const Text(
-                                "Log Out",
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ];
-              }),
-        ],
-        centerTitle: true,
-      ),
       body: ListView(
-        padding: const EdgeInsets.only(left: 18, right: 18),
         children: [
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25, top: 25, right: 25),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            "Hi, Rafli",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "22 Juni 2022",
+                          ),
+                        ],
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        child: const Icon(
+                          Icons.notifications,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           Container(
             child: CarouselSlider(
@@ -208,10 +159,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           const SizedBox(
-            height: 15,
+            height: 20,
           ),
           Container(
-            padding: const EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.only(left: 25, right: 25),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
