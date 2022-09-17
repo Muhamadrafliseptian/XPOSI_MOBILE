@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                         builder: (BuildContext context) => const Login()));
                   },
                   icon: const Icon(
-                    Icons.arrow_back_ios,
+                    Icons.arrow_back,
                     color: Colors.black,
                   ),
                 ),

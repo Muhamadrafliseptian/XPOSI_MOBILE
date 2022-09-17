@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/homepage.dart';
 import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/editprofile.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -29,7 +31,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const PageScreen()));
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
   }
 
   initScreen(BuildContext context) {

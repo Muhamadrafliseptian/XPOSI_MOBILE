@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (BuildContext context) => const Login()));
                   },
                   icon: const Icon(
-                    Icons.arrow_back_ios,
+                    Icons.arrow_back,
                     color: Colors.black,
                   ),
                 ),

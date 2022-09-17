@@ -220,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             child: SizedBox(
-              height: 270,
+              height: 272,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -228,148 +228,208 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding:
                         const EdgeInsets.only(left: 25, top: 10, bottom: 30),
                     child: Container(
-                      padding: const EdgeInsets.all(12),
-                      width: 150,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey
-                                  .withOpacity(0.5), //color of shadow
-                              spreadRadius: 2, //spread radius
-                              blurRadius: 2, // blur radius
-                              offset: const Offset(
-                                  0, 2), // changes position of shadow
-                              //first paramerter of offset is left-right
-                              //second parameter is top to down
+                        padding: const EdgeInsets.all(12),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                "images/testSeminar.png",
+                                height: 150,
+                                width: 150,
+                              ),
                             ),
-                            //you can set more BoxShadow() here
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "Seminar Xposi",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "22 Juni 2022",
+                                      style: TextStyle(fontSize: 8),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(6),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const Login()));
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_right_rounded,
+                                      size: 24,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset("images/testSeminar.png"),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              "data",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.bold),
-                            ),
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const Login()));
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
                   ),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 25, top: 10, bottom: 30),
                     child: Container(
-                      padding: const EdgeInsets.all(12),
-                      width: 150,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey
-                                  .withOpacity(0.5), //color of shadow
-                              spreadRadius: 2, //spread radius
-                              blurRadius: 2, // blur radius
-                              offset: const Offset(
-                                  0, 2), // changes position of shadow
-                              //ficrst paramerter of offset is left-right
-                              //second parameter is top to down
+                        padding: const EdgeInsets.all(12),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                "images/testSeminar.png",
+                                height: 150,
+                                width: 150,
+                              ),
                             ),
-                            //you can set more BoxShadow() here
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "Seminar Xposi",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "22 Juni 2022",
+                                      style: TextStyle(fontSize: 8),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(6),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const Login()));
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_right_rounded,
+                                      size: 24,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset("images/testSeminar.png"),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              "data",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.bold),
-                            ),
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const Login()));
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
                   ),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 25, top: 10, bottom: 30),
                     child: Container(
-                      padding: const EdgeInsets.all(12),
-                      width: 150,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey
-                                  .withOpacity(0.5), //color of shadow
-                              spreadRadius: 2, //spread radius
-                              blurRadius: 2, // blur radius
-                              offset: const Offset(
-                                  0, 2), // changes position of shadow
-                              //first paramerter of offset is left-right
-                              //second parameter is top to down
+                        padding: const EdgeInsets.all(12),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                "images/testSeminar.png",
+                                height: 150,
+                                width: 150,
+                              ),
                             ),
-                            //you can set more BoxShadow() here
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      "Seminar Xposi",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "22 Juni 2022",
+                                      style: TextStyle(fontSize: 8),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(6),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const Login()));
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_right_rounded,
+                                      size: 24,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset("images/testSeminar.png"),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              "data",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.bold),
-                            ),
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const Login()));
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
                   ),
                 ],
               ),

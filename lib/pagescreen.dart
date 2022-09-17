@@ -8,7 +8,7 @@ void main() {
 class PageScreen extends StatelessWidget {
   const PageScreen({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // This widget is the root ofar your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 builder: (BuildContext context) => const PageScreen()));
           },
           icon: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back,
             color: Colors.black,
           ),
         ),
