@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/main.dart';
+import 'package:bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:samara_xposi/login.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:samara_xposi/pagescreen.dart';
 
 void main() {
   runApp(const HomePage());
@@ -94,6 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.airplane_ticket), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: ''),
+        ],
+      ),
       body: ListView(
         children: [
           Container(
@@ -128,8 +135,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.grey.withOpacity(0.3),
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -144,6 +151,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 25.0,
+              right: 25.0,
+            ),
+            child: Container(
+                padding: const EdgeInsets.only(
+                  left: 5.0,
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(10.0)),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: 'Search Event',
+                      border: InputBorder.none,
+                      fillColor: Colors.grey.withOpacity(0.5),
+                      prefixIcon: const Icon(Icons.search, color: Colors.grey)),
+                )),
           ),
           const SizedBox(
             height: 20,
@@ -183,6 +213,166 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ],
+            ),
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 270,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      width: 150,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey
+                                  .withOpacity(0.5), //color of shadow
+                              spreadRadius: 2, //spread radius
+                              blurRadius: 2, // blur radius
+                              offset: const Offset(
+                                  0, 2), // changes position of shadow
+                              //first paramerter of offset is left-right
+                              //second parameter is top to down
+                            ),
+                            //you can set more BoxShadow() here
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset("images/testSeminar.png"),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          GestureDetector(
+                            child: const Text(
+                              "data",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold),
+                            ),
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Login()));
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      width: 150,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey
+                                  .withOpacity(0.5), //color of shadow
+                              spreadRadius: 2, //spread radius
+                              blurRadius: 2, // blur radius
+                              offset: const Offset(
+                                  0, 2), // changes position of shadow
+                              //ficrst paramerter of offset is left-right
+                              //second parameter is top to down
+                            ),
+                            //you can set more BoxShadow() here
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset("images/testSeminar.png"),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          GestureDetector(
+                            child: const Text(
+                              "data",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold),
+                            ),
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Login()));
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      width: 150,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey
+                                  .withOpacity(0.5), //color of shadow
+                              spreadRadius: 2, //spread radius
+                              blurRadius: 2, // blur radius
+                              offset: const Offset(
+                                  0, 2), // changes position of shadow
+                              //first paramerter of offset is left-right
+                              //second parameter is top to down
+                            ),
+                            //you can set more BoxShadow() here
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset("images/testSeminar.png"),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          GestureDetector(
+                            child: const Text(
+                              "data",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold),
+                            ),
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const Login()));
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

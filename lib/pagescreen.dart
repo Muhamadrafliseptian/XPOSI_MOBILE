@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => const Register()));
+                builder: (BuildContext context) => const PageScreen()));
           },
           icon: const Icon(
             Icons.arrow_back_ios,
