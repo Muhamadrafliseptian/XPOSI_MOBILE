@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:samara_xposi/detailevent.dart';
 import 'package:samara_xposi/login.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -37,56 +38,35 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-class VerticalSliderDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Vertical sliding carousel demo')),
-      body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(
-          aspectRatio: 2.0,
-          enlargeCenterPage: true,
-          scrollDirection: Axis.vertical,
-          autoPlay: true,
-        ),
-        items: imageSliders,
-      )),
-    );
-  }
-}
-
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-          child: Container(
-            margin: EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
+          margin: const EdgeInsets.all(5.0),
+          child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+              child: Stack(
+                children: <Widget>[
+                  Image.network(item, fit: BoxFit.cover, width: 600.0),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(200, 0, 0, 0),
+                            Color.fromARGB(0, 0, 0, 0)
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
                       ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 10.0),
                     ),
-                  ],
-                )),
-          ),
+                  ),
+                ],
+              )),
         ))
     .toList();
 
@@ -102,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           Container(
             child: Padding(
@@ -179,6 +160,8 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 20,
           ),
           Container(
+            width: 100,
+            decoration: BoxDecoration(),
             child: CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
@@ -216,20 +199,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           const SizedBox(
-            height: 7,
+            height: 5,
           ),
           Expanded(
             child: SizedBox(
-              height: 272,
+              height: 220,
               child: ListView(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
                     child: Container(
-                        padding: const EdgeInsets.all(12),
-                        width: 150,
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
                         decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -244,61 +228,51 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius: BorderRadius.circular(12)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
                               child: Image.asset(
-                                "images/testSeminar.png",
-                                height: 150,
-                                width: 150,
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      "Seminar Xposi",
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
                                       style: TextStyle(
                                           color: Colors.blue,
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
                                     ),
-                                    Text(
-                                      "22 Juni 2022",
-                                      style: TextStyle(fontSize: 8),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(6),
-                                  child: IconButton(
-                                    onPressed: () {
+                                    onTap: () {
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  const Login()));
+                                                  const DetailEvent()));
                                     },
-                                    icon: const Icon(
-                                      Icons.arrow_right_rounded,
-                                      size: 24,
-                                      color: Colors.black,
-                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
                         )),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
                     child: Container(
-                        padding: const EdgeInsets.all(12),
-                        width: 150,
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
                         decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -313,61 +287,51 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius: BorderRadius.circular(12)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
                               child: Image.asset(
-                                "images/testSeminar.png",
-                                height: 150,
-                                width: 150,
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      "Seminar Xposi",
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
                                       style: TextStyle(
                                           color: Colors.blue,
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
                                     ),
-                                    Text(
-                                      "22 Juni 2022",
-                                      style: TextStyle(fontSize: 8),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(6),
-                                  child: IconButton(
-                                    onPressed: () {
+                                    onTap: () {
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  const Login()));
+                                                  const DetailEvent()));
                                     },
-                                    icon: const Icon(
-                                      Icons.arrow_right_rounded,
-                                      size: 24,
-                                      color: Colors.black,
-                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
                         )),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 25, top: 10, bottom: 30),
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
                     child: Container(
-                        padding: const EdgeInsets.all(12),
-                        width: 150,
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
                         decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -382,51 +346,363 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius: BorderRadius.circular(12)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
                               child: Image.asset(
-                                "images/testSeminar.png",
-                                height: 150,
-                                width: 150,
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      "Seminar Xposi",
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
                                       style: TextStyle(
                                           color: Colors.blue,
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
                                     ),
-                                    Text(
-                                      "22 Juni 2022",
-                                      style: TextStyle(fontSize: 8),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(6),
-                                  child: IconButton(
-                                    onPressed: () {
+                                    onTap: () {
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  const Login()));
+                                                  const DetailEvent()));
                                     },
-                                    icon: const Icon(
-                                      Icons.arrow_right_rounded,
-                                      size: 24,
-                                      color: Colors.black,
-                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
+                    child: Container(
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
+                              child: Image.asset(
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const DetailEvent()));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 25, right: 25),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Tiket Terbaru",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 220,
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
+                    child: Container(
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
+                              child: Image.asset(
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const DetailEvent()));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
+                    child: Container(
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
+                              child: Image.asset(
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const DetailEvent()));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
+                    child: Container(
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
+                              child: Image.asset(
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const DetailEvent()));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
+                    child: Container(
+                        padding: const EdgeInsets.all(0),
+                        width: 110,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey
+                                    .withOpacity(0.5), //color of shadow
+                                spreadRadius: 2, //spread radius
+                                blurRadius: 2, // blur radius
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  topLeft: Radius.circular(12)),
+                              child: Image.asset(
+                                "assets/images/testSeminar.png",
+                                height: 130.0,
+                                width: 120.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Row(
+                                children: [
+                                  GestureDetector(
+                                    child: const Text(
+                                      "Seminar XPOSI",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 8),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const DetailEvent()));
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         )),

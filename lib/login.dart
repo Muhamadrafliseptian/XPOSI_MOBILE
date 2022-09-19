@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: IconButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Login()));
+                        builder: (BuildContext context) => const HomePage()));
                   },
                   icon: const Icon(
                     Icons.arrow_back,
