@@ -34,7 +34,6 @@ class _DetailEventState extends State<DetailEventPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(20.0),
         children: [
           Row(
@@ -166,17 +165,10 @@ class _DetailEventState extends State<DetailEventPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "is simply dummy text of the It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "is simply dummy text of the but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                   style: TextStyle(fontSize: 10),
                 ),
               ],
-            ),
-          ),
-          Container(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.blue),
-              onPressed: () {},
-              child: const Text("Daftar"),
             ),
           ),
         ],

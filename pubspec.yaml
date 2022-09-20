@@ -66,6 +66,8 @@ flutter:
     - assets/images/burger.png
     - assets/images/splashscreen.png
     - assets/images/testSeminar.png
+    - assets/images/testSeminar2.jpg
+    - assets/images/testSeminar3.jpg
     - assets/images/testTicket.jpeg
   #   - images/a_dot_ham.jpeg
 

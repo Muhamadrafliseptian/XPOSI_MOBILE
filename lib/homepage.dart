@@ -243,8 +243,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              child: Row(
+                                  left: 10, top: 10, bottom: 5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   GestureDetector(
                                     child: const Text(
@@ -260,6 +262,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                               builder: (BuildContext context) =>
                                                   const DetailEvent()));
                                     },
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                  const Text(
+                                    "26 September",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 7,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -294,7 +307,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   topRight: Radius.circular(12),
                                   topLeft: Radius.circular(12)),
                               child: Image.asset(
-                                "assets/images/testSeminar.png",
+                                "assets/images/testSeminar3.jpg",
                                 height: 130.0,
                                 width: 120.0,
                                 fit: BoxFit.cover,
@@ -302,8 +315,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              child: Row(
+                                  left: 10, top: 10, bottom: 5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   GestureDetector(
                                     child: const Text(
@@ -319,6 +334,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                               builder: (BuildContext context) =>
                                                   const DetailEvent()));
                                     },
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                  const Text(
+                                    "26 September",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 7,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -353,7 +379,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   topRight: Radius.circular(12),
                                   topLeft: Radius.circular(12)),
                               child: Image.asset(
-                                "assets/images/testSeminar.png",
+                                "assets/images/testSeminar2.jpg",
                                 height: 130.0,
                                 width: 120.0,
                                 fit: BoxFit.cover,
@@ -361,8 +387,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              child: Row(
+                                  left: 10, top: 10, bottom: 5),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   GestureDetector(
                                     child: const Text(
@@ -379,64 +407,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   const DetailEvent()));
                                     },
                                   ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        )),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10, top: 10, bottom: 40),
-                    child: Container(
-                        padding: const EdgeInsets.all(0),
-                        width: 110,
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey
-                                    .withOpacity(0.5), //color of shadow
-                                spreadRadius: 2, //spread radius
-                                blurRadius: 2, // blur radius
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(12),
-                                  topLeft: Radius.circular(12)),
-                              child: Image.asset(
-                                "assets/images/testSeminar.png",
-                                height: 130.0,
-                                width: 120.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    child: const Text(
-                                      "Seminar XPOSI",
-                                      style: TextStyle(
-                                          color: Colors.blue,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 8),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                  const Text(
+                                    "26 September",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 7,
                                     ),
-                                    onTap: () {
-                                      Navigator.of(context).pushReplacement(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  const DetailEvent()));
-                                    },
                                   ),
                                 ],
                               ),
