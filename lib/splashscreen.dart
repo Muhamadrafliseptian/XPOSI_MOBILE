@@ -1,11 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/detailevent.dart';
-import 'package:samara_xposi/homepage.dart';
-import 'package:samara_xposi/pagescreen.dart';
-import 'package:samara_xposi/editprofile.dart';
-import 'package:samara_xposi/profile.dart';
+import 'package:samara_xposi/showEvent.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -33,7 +29,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
+        context, MaterialPageRoute(builder: (context) => ShowEvent()));
   }
 
   initScreen(BuildContext context) {
