@@ -29,7 +29,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => ShowEvent()));
+        context, MaterialPageRoute(builder: (context) => MainPage()));
   }
 
   initScreen(BuildContext context) {
