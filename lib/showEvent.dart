@@ -1,38 +1,57 @@
-// ignore_for_file: non_constant_identifier_names
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class MyCustomWidget extends StatefulWidget {
+  const MyCustomWidget({Key? key}) : super(key: key);
 
   @override
-  _MainPageState createState() => _MainPageState();
+  State<MyCustomWidget> createState() => _MyCustomWidgetState();
 }
 
-class _MainPageState extends State<MainPage> {
-  String text = "Hasil qr code";
+class _MyCustomWidgetState extends State<MyCustomWidget> {
+  var getResult = 'QR Code Result';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(text),
-            const SizedBox(
-              height: 5,
-            ),
-            ElevatedButton(
-              child: const Text("Scan"),
-              onPressed: () async {
-                text = (await scanner.scan())!;
-                setState(() {});
-              },
-            )
-          ],
-        ),
+      appBar: AppBar(
+        title: Text('QR Scanner'),
       ),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              scanQRCode();
+            },
+            child: Text('Scan QR'),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Text(getResult),
+        ],
+      )),
     );
+  }
+
+  void scanQRCode() async {
+    try {
+      final qrCode = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+
+      if (!mounted) return;
+
+      setState(() {
+        getResult = qrCode;
+      });
+      print("QRCode_Result:--");
+      print(qrCode);
+    } on PlatformException {
+      getResult = 'Failed to scan QR Code.';
+    }
   }
 }
