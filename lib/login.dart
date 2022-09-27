@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
-                        fontSize: 18),
+                        fontSize: 14),
                   ),
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
-                        fontSize: 18),
+                        fontSize: 14),
                   ),
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -104,13 +104,13 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.account_circle),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -131,13 +131,13 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.lock),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w500,
-                      fontSize: 16),
+                      fontSize: 14),
                 )
               ],
             ),
@@ -170,18 +170,21 @@ class _LoginPageState extends State<LoginPage> {
             height: 10,
           ),
           ElevatedButton(
-            onPressed: (() {}),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const HomePage()));
+            },
             child: Text(
               "Login",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 14,
               ),
             ),
             style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(255, 131, 54, 255),
+              primary: Colors.blue,
               fixedSize: const Size(150, 50),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0)),
+                  borderRadius: BorderRadius.circular(12.0)),
             ),
           ),
         ],

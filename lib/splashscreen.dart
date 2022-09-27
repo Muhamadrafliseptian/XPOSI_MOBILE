@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:samara_xposi/homepage.dart';
+import 'package:samara_xposi/pagescreen.dart';
 import 'package:samara_xposi/showEvent.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,13 +25,13 @@ class StartState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = const Duration(seconds: 2);
+    var duration = const Duration(seconds: 19);
     return Timer(duration, route);
   }
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+        context, MaterialPageRoute(builder: (context) => PageScreen()));
   }
 
   initScreen(BuildContext context) {

@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+        padding: const EdgeInsets.all(20),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -52,32 +52,40 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           SizedBox(
-            height: 10,
+            height: 5,
+          ),
+          Container(
+            alignment: Alignment.topCenter,
+            height: 300,
+            child: Image.asset(
+              "assets/images/logo.png",
+              fit: BoxFit.cover,
+            ),
           ),
           Container(
             padding: const EdgeInsets.only(left: 20),
             child: const Text(
               "Data Akun",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           TextField(
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.account_circle),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -98,13 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.lock),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -122,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(left: 20),
             child: const Text(
               "Detail Informasi",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
           ),
           const SizedBox(
@@ -134,13 +142,13 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.account_balance),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -160,13 +168,13 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.phone),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -186,13 +194,13 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.date_range),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(12),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(12.0),
                 borderSide: const BorderSide(
                   color: Colors.blue,
                   width: 1.0,
@@ -212,14 +220,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "Register",
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 14,
               ),
             ),
             style: ElevatedButton.styleFrom(
-              primary: const Color.fromARGB(255, 131, 54, 255),
+              primary: Colors.blue,
               fixedSize: const Size(150, 50),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0)),
+                  borderRadius: BorderRadius.circular(12.0)),
             ),
           ),
         ],

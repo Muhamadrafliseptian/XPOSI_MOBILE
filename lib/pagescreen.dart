@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/login.dart';
 import 'package:samara_xposi/register.dart';
 
 void main() {
@@ -87,11 +88,14 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 15,
           ),
           ElevatedButton(
-            onPressed: (() {}),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const Login()));
+            },
             child: Text(
               "Login with Google",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 12,
               ),
             ),
             style: ElevatedButton.styleFrom(
@@ -105,11 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),
           ElevatedButton(
-            onPressed: (() {}),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const Login()));
+            },
             child: Text(
-              "Login With Facebook",
+              "Login With Email",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 12,
               ),
             ),
             style: ElevatedButton.styleFrom(
