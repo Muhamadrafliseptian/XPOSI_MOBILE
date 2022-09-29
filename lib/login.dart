@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
             alignment: Alignment.topCenter,
             height: 300,
             child: Image.asset(
-              "assets/images/logo.png",
+              "assets/images/bubble-gum-workflow.png",
               fit: BoxFit.contain,
             ),
           ),

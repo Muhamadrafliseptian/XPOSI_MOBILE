@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/detailevent.dart';
 
 class CardEvent extends StatelessWidget {
   final String EventName;
@@ -57,16 +58,23 @@ class CardEvent extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 7),
-                child: Text(
-                  EventName,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 11,
+                child: InkWell(
+                  child: Text(
+                    EventName,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 11,
+                    ),
+                    overflow: TextOverflow.fade,
+                    maxLines: 2,
+                    softWrap: false,
                   ),
-                  overflow: TextOverflow.fade,
-                  maxLines: 2,
-                  softWrap: false,
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const DetailEvent()));
+                  },
                 ),
               ),
               Padding(

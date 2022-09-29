@@ -34,6 +34,17 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+final List Event = [
+  ['Pestapora', 'assets/images/testSeminar.png', '23 Juli 2022', 'read'],
+  [
+    'Pestapora',
+    'assets/images/testSeminar2.jpg',
+    '21 Oktober wwwwwwwwwwwwwwwwwwwwwwwwwwwww2022',
+    'read'
+  ],
+  ['Pestapora', 'assets/images/testSeminar3.jpg', '28', 'read']
+];
+
 final List<String> imgList = [
   'assets/images/testSeminar2.jpg',
   'assets/images/testSeminar3.jpg',
@@ -208,13 +219,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: Event.length,
                   itemBuilder: (context, index) {
                     return CardEvent(
-                      EventName: 'PT Satya Amarta',
-                      EventImage: 'assets/images/testSeminar.png',
-                      EventDate: '24 Juli',
-                      EventDetail: 'Read More',
+                      EventName: Event[index][0],
+                      EventImage: Event[index][1],
+                      EventDate: Event[index][2],
+                      EventDetail: Event[index][3],
                     );
                   })),
           const SizedBox(
