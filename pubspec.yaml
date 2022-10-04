@@ -73,6 +73,7 @@ flutter:
     - assets/images/testTicket.jpeg
     - assets/images/logo2.png
     - assets/images/bubble-gum-workflow.png
+    - assets/icons/arrow.png
 
   #   - images/a_dot_ham.jpeg
 

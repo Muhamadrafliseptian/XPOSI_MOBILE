@@ -1,148 +1,194 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/login.dart';
-import 'package:samara_xposi/register.dart';
 
 void main() {
   runApp(const PageScreen());
 }
 
-class PageScreen extends StatelessWidget {
+class PageScreen extends StatefulWidget {
   const PageScreen({Key? key}) : super(key: key);
 
   // This widget is the root ofar your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const MyHomePage(title: ''),
+      home: const PageScreen(),
+    );
+  }
+
+  @override
+  State<PageScreen> createState() => _PageScreenState();
+}
+
+class _PageScreenState extends State<PageScreen> {
+  late PageController _pageController;
+
+  int _pageIndex = 0;
+
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _pageIndex = index;
+                    });
+                  },
+                  itemCount: demo_data.length,
+                  itemBuilder: (context, index) => OnBoardingContent(
+                        image: demo_data[index].image,
+                        title: demo_data[index].title,
+                        description: demo_data[index].description,
+                      )),
+            ),
+            Row(
+              children: [
+                ...List.generate(
+                  demo_data.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: DotIndicator(
+                      isActive: index == _pageIndex,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                SizedBox(
+                  height: 60,
+                  width: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _pageController.nextPage(
+                          curve: Curves.ease,
+                          duration: Duration(milliseconds: 300));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                    ),
+                    child: Image.asset(
+                      "assets/icons/arrow.png",
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    ));
+  }
+}
+
+class DotIndicator extends StatelessWidget {
+  const DotIndicator({
+    Key? key,
+    this.isActive = false,
+  }) : super(key: key);
+
+  final bool isActive;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
+      height: isActive ? 12 : 4,
+      width: 4,
+      decoration: BoxDecoration(
+          color: isActive ? Colors.blue : Colors.blue.withOpacity(0.4),
+          borderRadius: BorderRadius.all(Radius.circular(12))),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class Onboard {
+  final String image, title, description;
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  Onboard({
+    required this.image,
+    required this.title,
+    required this.description,
+  });
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+final List<Onboard> demo_data = [
+  Onboard(
+    image: "assets/images/pagscreen.png",
+    title: "find what item you've \nbeen looking for",
+    description:
+        "here come the sun tototootototototaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  ),
+  Onboard(
+    image: "assets/images/pagscreen.png",
+    title: "find what item you've \nbeen looking for",
+    description:
+        "here come the sun tototootototototaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  ),
+  Onboard(
+    image: "assets/images/pagscreen.png",
+    title: "find what item you've \nbeen looking for",
+    description:
+        "here come the sun tototootototototaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  ),
+];
+
+class OnBoardingContent extends StatelessWidget {
+  const OnBoardingContent(
+      {Key? key,
+      required this.title,
+      required this.image,
+      required this.description})
+      : super(key: key);
+
+  final String image, title, description;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => const PageScreen()));
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
+    return Column(
+      children: [
+        const Spacer(),
+        Image.asset(
+          image,
+          height: 250,
         ),
-      ),
-      body: ListView(
-        padding: EdgeInsets.all(20.0),
-        children: [
-          Container(
-            alignment: Alignment.topCenter,
-            height: 300,
-            child: Image.asset(
-              "assets/images/pagscreen.png",
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: Text(
-              "Get Connect To Event",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(left: 50, right: 50),
-            child: Text(
-              "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const Login()));
-            },
-            child: Text(
-              "Login with Google",
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.red,
-              fixedSize: const Size(150, 50),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const Login()));
-            },
-            child: Text(
-              "Login With Email",
-              style: TextStyle(
-                fontSize: 12,
-              ),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blue,
-              fixedSize: const Size(150, 50),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-            child: GestureDetector(
-              child: Text(
-                "Don't have an account? Sign Up Here",
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => const Register()));
-              },
-            ),
-          ),
-        ],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        const Spacer(),
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(fontWeight: FontWeight.w500),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Text(
+          description,
+          textAlign: TextAlign.center,
+        ),
+        const Spacer(),
+      ],
     );
   }
 }
