@@ -40,63 +40,70 @@ class _PageScreenState extends State<PageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                  controller: _pageController,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _pageIndex = index;
-                    });
-                  },
-                  itemCount: demo_data.length,
-                  itemBuilder: (context, index) => OnBoardingContent(
-                        image: demo_data[index].image,
-                        title: demo_data[index].title,
-                        description: demo_data[index].description,
-                      )),
-            ),
-            Row(
-              children: [
-                ...List.generate(
-                  demo_data.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(right: 4),
-                    child: DotIndicator(
-                      isActive: index == _pageIndex,
-                    ),
-                  ),
-                ),
-                Spacer(),
-                SizedBox(
-                  height: 60,
-                  width: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      _pageController.nextPage(
-                          curve: Curves.ease,
-                          duration: Duration(milliseconds: 300));
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.purple, Colors.orange])),
+      child: Scaffold(
+          body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _pageIndex = index;
+                      });
                     },
-                    style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                    ),
-                    child: Image.asset(
-                      "assets/icons/arrow.png",
-                      color: Colors.white,
+                    itemCount: demo_data.length,
+                    itemBuilder: (context, index) => OnBoardingContent(
+                          image: demo_data[index].image,
+                          title: demo_data[index].title,
+                          description: demo_data[index].description,
+                        )),
+              ),
+              Row(
+                children: [
+                  ...List.generate(
+                    demo_data.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: DotIndicator(
+                        isActive: index == _pageIndex,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
+                  Spacer(),
+                  SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _pageController.nextPage(
+                            curve: Curves.ease,
+                            duration: Duration(milliseconds: 300));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: CircleBorder(),
+                      ),
+                      child: Image.asset(
+                        "assets/icons/arrow.png",
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 }
 
@@ -133,13 +140,13 @@ class Onboard {
 
 final List<Onboard> demo_data = [
   Onboard(
-    image: "assets/images/pagscreen.png",
+    image: "assets/images/onboarding0.png",
     title: "find what item you've \nbeen looking for",
     description:
         "here come the sun tototootototototaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   ),
   Onboard(
-    image: "assets/images/pagscreen.png",
+    image: "assets/images/onboarding1.png",
     title: "find what item you've \nbeen looking for",
     description:
         "here come the sun tototootototototaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",

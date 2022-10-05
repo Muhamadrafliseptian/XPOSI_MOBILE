@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/register.dart';
+import 'package:samara_xposi/resetPassword.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,23 +29,18 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => PageScreen()));
+        context, MaterialPageRoute(builder: (context) => Reset()));
   }
 
   initScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               child: Image.asset("assets/images/splashscreen.png"),
-            ),
-            const Padding(padding: EdgeInsets.only(top: 20.0)),
-            const Text(
-              "Splash Screen",
-              style: TextStyle(fontSize: 20.0, color: Colors.white),
             ),
             const Padding(padding: EdgeInsets.only(top: 20.0)),
             const CircularProgressIndicator(

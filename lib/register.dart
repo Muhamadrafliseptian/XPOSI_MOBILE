@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:samara_xposi/login.dart';
+import 'package:samara_xposi/register.dart';
+import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/homepage.dart';
 
 void main() {
   runApp(const Register());
@@ -13,26 +17,26 @@ class Register extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      home: const MyHomePage(title: ''),
+      home: const RegisterPage(title: ''),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20.0),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -51,172 +55,140 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          SizedBox(
-            height: 5,
-          ),
           Container(
-            alignment: Alignment.topCenter,
-            height: 300,
+            alignment: Alignment.center,
+            height: 200,
             child: Image.asset(
-              "assets/images/logo.png",
-              fit: BoxFit.cover,
+              "assets/images/onboarding1.png",
+              fit: BoxFit.contain,
             ),
+          ),
+          SizedBox(
+            height: 20,
           ),
           Container(
-            padding: const EdgeInsets.only(left: 20),
-            child: const Text(
-              "Data Akun",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  child: const Text(
+                    "Register",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (BuildContext context) => Login()));
+                  },
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 10),
-          TextField(
-            keyboardType: TextInputType.emailAddress,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.account_circle),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
+          const SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.email),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
                 ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 1.0,
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
                 ),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                hintText: "email",
               ),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 219, 239, 255),
-              hintText: "Email",
             ),
           ),
           const SizedBox(
             height: 10,
           ),
-          TextField(
-            keyboardType: TextInputType.visiblePassword,
-            autocorrect: false,
-            obscureText: true,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.lock),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: TextField(
+              keyboardType: TextInputType.phone,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.phone),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
                 ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 1.0,
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
                 ),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                hintText: "Mobile",
               ),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 219, 239, 255),
-              hintText: "Password",
             ),
           ),
           const SizedBox(
             height: 10,
           ),
-          Container(
-            padding: const EdgeInsets.only(left: 20),
-            child: const Text(
-              "Detail Informasi",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: TextField(
+              keyboardType: TextInputType.visiblePassword,
+              obscureText: true,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.lock),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                hintText: "password",
+              ),
             ),
           ),
           const SizedBox(
             height: 10,
           ),
-          TextField(
-            keyboardType: TextInputType.text,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.account_balance),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text.rich(
+              TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                      text: "by signing up, you're agree to our ",
+                      style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: 'Terms & Condintions ',
+                      style: TextStyle(color: Colors.blue)),
+                  TextSpan(text: "and ", style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: "Privacy Policy",
+                      style: TextStyle(color: Colors.blue)),
+                ],
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 1.0,
-                ),
-              ),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 219, 239, 255),
-              hintText: "Nama Lengkap",
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 14.0),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 10,
           ),
-          TextField(
-            keyboardType: TextInputType.phone,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.phone),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 1.0,
-                ),
-              ),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 219, 239, 255),
-              hintText: "No Telepon",
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          TextField(
-            keyboardType: TextInputType.datetime,
-            autocorrect: false,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.date_range),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                borderSide: const BorderSide(
-                  color: Colors.blue,
-                  width: 1.0,
-                ),
-              ),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 219, 239, 255),
-              hintText: "Tanggal Lahir",
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(),
           ElevatedButton(
-            onPressed: (() {}),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const Login()));
+            },
             child: Text(
               "Register",
               style: TextStyle(
@@ -225,9 +197,35 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.blue,
-              fixedSize: const Size(150, 50),
+              fixedSize: const Size(150, 40),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0)),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const Login()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              child: Text.rich(
+                TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Have a join us? ',
+                        style: TextStyle(color: Colors.black)),
+                    TextSpan(
+                        text: 'Login here',
+                        style: TextStyle(color: Colors.blue)),
+                  ],
+                ),
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14.0),
+              ),
             ),
           ),
         ],
