@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/OTP.dart';
 import 'package:samara_xposi/register.dart';
 import 'package:samara_xposi/resetPassword.dart';
 
@@ -29,7 +30,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Reset()));
+        context, MaterialPageRoute(builder: (context) => OTP()));
   }
 
   initScreen(BuildContext context) {
