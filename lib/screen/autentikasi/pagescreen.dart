@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/screen/autentikasi/register.dart';
+
+import 'login.dart';
 
 void main() {
   runApp(const PageScreen());

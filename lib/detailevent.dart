@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/register.dart';
-import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/register.dart';
+import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {

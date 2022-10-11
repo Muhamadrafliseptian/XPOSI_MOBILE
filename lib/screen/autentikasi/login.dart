@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:samara_xposi/login.dart';
-import 'package:samara_xposi/register.dart';
-import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/fogotPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/register.dart';
+import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {
-  runApp(const Register());
+  runApp(const Login());
 }
 
-class Register extends StatelessWidget {
-  const Register({Key? key}) : super(key: key);
+class Login extends StatelessWidget {
+  const Login({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      home: const RegisterPage(title: ''),
+      home: const LoginPage(title: ''),
     );
   }
 }
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key, required this.title}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: IconButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Login()));
+                        builder: (BuildContext context) => const Register()));
                   },
                   icon: const Icon(
                     Icons.arrow_back,
@@ -59,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
             alignment: Alignment.center,
             height: 200,
             child: Image.asset(
-              "assets/images/onboarding1.png",
+              "assets/images/onboarding0.png",
               fit: BoxFit.contain,
             ),
           ),
@@ -71,18 +71,12 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => Login()));
-                  },
+                const Text(
+                  "Login",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24),
                 ),
               ],
             ),
@@ -116,29 +110,6 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: TextField(
-              keyboardType: TextInputType.phone,
-              autocorrect: false,
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.phone),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                ),
-                border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
-                ),
-                hintText: "Mobile",
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: TextField(
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               autocorrect: false,
@@ -160,37 +131,37 @@ class _RegisterPageState extends State<RegisterPage> {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text.rich(
-              TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                      text: "by signing up, you're agree to our ",
-                      style: TextStyle(color: Colors.black)),
-                  TextSpan(
-                      text: 'Terms & Condintions ',
-                      style: TextStyle(color: Colors.blue)),
-                  TextSpan(text: "and ", style: TextStyle(color: Colors.black)),
-                  TextSpan(
-                      text: "Privacy Policy",
-                      style: TextStyle(color: Colors.blue)),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const Forgot()));
+            },
+            child: Container(
+              padding: const EdgeInsets.only(right: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  Text(
+                    "Forgot Password?",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14),
+                  ),
                 ],
               ),
-              textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 14.0),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const Login()));
+                  builder: (BuildContext context) => const HomePage()));
             },
             child: Text(
-              "Register",
+              "Login",
               style: TextStyle(
                 fontSize: 14,
               ),
@@ -205,10 +176,47 @@ class _RegisterPageState extends State<RegisterPage> {
           SizedBox(
             height: 10,
           ),
+          Row(children: <Widget>[
+            Expanded(child: Divider()),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Text(
+                "OR",
+                style:
+                    TextStyle(color: Colors.grey, fontWeight: FontWeight.w700),
+              ),
+            ),
+            Expanded(child: Divider()),
+          ]),
+          SizedBox(
+            height: 10,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const HomePage()));
+            },
+            child: Text(
+              "Login with Google",
+              style: TextStyle(
+                fontSize: 14,
+                color: Color.fromARGB(115, 29, 29, 29),
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: Color.fromARGB(255, 237, 237, 237),
+              fixedSize: const Size(150, 40),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0)),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const Login()));
+                  builder: (BuildContext context) => const Register()));
             },
             child: Container(
               alignment: Alignment.center,
@@ -216,11 +224,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                        text: 'Have a join us? ',
+                        text: 'Dont have an account? ',
                         style: TextStyle(color: Colors.black)),
                     TextSpan(
-                        text: 'Login here',
-                        style: TextStyle(color: Colors.blue)),
+                        text: 'Register', style: TextStyle(color: Colors.blue)),
                   ],
                 ),
                 textAlign: TextAlign.center,

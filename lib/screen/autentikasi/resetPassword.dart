@@ -1,36 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/login.dart';
-import 'package:samara_xposi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/OTP.dart';
+import 'package:samara_xposi/screen/autentikasi/fogotPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/login.dart';
+import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
 import 'package:samara_xposi/homepage.dart';
-import 'package:samara_xposi/resetPassword.dart';
 
 void main() {
-  runApp(const Forgot());
+  runApp(const Reset());
 }
 
-class Forgot extends StatelessWidget {
-  const Forgot({Key? key}) : super(key: key);
+class Reset extends StatelessWidget {
+  const Reset({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      home: const ForgotPage(title: ''),
+      home: const ResetPage(title: ''),
     );
   }
 }
 
-class ForgotPage extends StatefulWidget {
-  const ForgotPage({Key? key, required this.title}) : super(key: key);
+class ResetPage extends StatefulWidget {
+  const ResetPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<ForgotPage> createState() => _ForgotPageState();
+  State<ResetPage> createState() => _ResetPageState();
 }
 
-class _ForgotPageState extends State<ForgotPage> {
+class _ResetPageState extends State<ResetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,7 @@ class _ForgotPageState extends State<ForgotPage> {
                 child: IconButton(
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => const Login()));
+                        builder: (BuildContext context) => const Forgot()));
                   },
                   icon: const Icon(
                     Icons.arrow_back,
@@ -71,7 +72,7 @@ class _ForgotPageState extends State<ForgotPage> {
               children: [
                 Container(
                   child: Text(
-                    "Forgot \nPassword?",
+                    "Reset \nPassword",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -93,10 +94,11 @@ class _ForgotPageState extends State<ForgotPage> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: TextField(
-              keyboardType: TextInputType.emailAddress,
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
               autocorrect: false,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.email),
+                prefixIcon: const Icon(Icons.lock),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),
                 ),
@@ -106,7 +108,31 @@ class _ForgotPageState extends State<ForgotPage> {
                 border: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),
                 ),
-                hintText: "email",
+                hintText: "New Password",
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: TextField(
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              autocorrect: false,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.lock),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+                hintText: "Confirm New Password",
               ),
             ),
           ),
@@ -116,7 +142,7 @@ class _ForgotPageState extends State<ForgotPage> {
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (BuildContext context) => const Reset()));
+                  builder: (BuildContext context) => const OTP()));
             },
             child: Text(
               "Submit",

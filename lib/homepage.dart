@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:samara_xposi/cardTicket.dart';
+import 'package:samara_xposi/components/cardTicket.dart';
 import 'package:samara_xposi/detailevent.dart';
-import 'package:samara_xposi/login.dart';
-import 'package:samara_xposi/cardExhibitor.dart';
+import 'package:samara_xposi/screen/autentikasi/login.dart';
+import 'package:samara_xposi/components/cardExhibitor.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import 'cardEvent.dart';
+import 'components/cardEvent.dart';
 
 void main() {
   runApp(const HomePage());

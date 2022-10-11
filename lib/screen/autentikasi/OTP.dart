@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_shimmer/flutter_shimmer.dart';
-import 'package:samara_xposi/fogotPassword.dart';
-import 'package:samara_xposi/login.dart';
+import 'package:samara_xposi/screen/autentikasi/fogotPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/login.dart';
 
 void main() {
   runApp(const OTP());
@@ -131,6 +131,29 @@ class _OTPPageState extends State<OTPPage> {
                   height: 68,
                   width: 64,
                   child: TextFormField(
+                    textAlign: TextAlign.center,
+                    onSaved: (pin1) {},
+                    decoration: InputDecoration(
+                      hintText: "0",
+                    ),
+                    onChanged: (value) {
+                      if (value.length == 1) {
+                        FocusScope.of(context).nextFocus();
+                      }
+                    },
+                    style: Theme.of(context).textTheme.headline6,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 68,
+                  width: 64,
+                  child: TextFormField(
+                    textAlign: TextAlign.center,
                     onSaved: (pin1) {},
                     decoration: InputDecoration(hintText: "0"),
                     onChanged: (value) {
@@ -150,6 +173,7 @@ class _OTPPageState extends State<OTPPage> {
                   height: 68,
                   width: 64,
                   child: TextFormField(
+                    textAlign: TextAlign.center,
                     onSaved: (pin1) {},
                     decoration: InputDecoration(hintText: "0"),
                     onChanged: (value) {
@@ -169,25 +193,7 @@ class _OTPPageState extends State<OTPPage> {
                   height: 68,
                   width: 64,
                   child: TextFormField(
-                    onSaved: (pin1) {},
-                    decoration: InputDecoration(hintText: "0"),
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    style: Theme.of(context).textTheme.headline6,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 68,
-                  width: 64,
-                  child: TextFormField(
+                    textAlign: TextAlign.center,
                     onSaved: (pin1) {},
                     decoration: InputDecoration(hintText: "0"),
                     style: Theme.of(context).textTheme.headline6,

@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/OTP.dart';
-import 'package:samara_xposi/register.dart';
-import 'package:samara_xposi/resetPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/OTP.dart';
+import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/register.dart';
+import 'package:samara_xposi/screen/autentikasi/resetPassword.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

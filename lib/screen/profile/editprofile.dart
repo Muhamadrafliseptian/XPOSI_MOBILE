@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/profile.dart';
+import 'package:samara_xposi/screen/profile/profile.dart';
 
 void main() {
   runApp(const EditProfile());

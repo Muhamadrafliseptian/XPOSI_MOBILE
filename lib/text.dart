@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:samara_xposi/cardTicket.dart';
+import 'package:samara_xposi/components/cardTicket.dart';
 import 'package:samara_xposi/detailevent.dart';
 import 'package:samara_xposi/login.dart';
 import 'package:carousel_slider/carousel_slider.dart';
