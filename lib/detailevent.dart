@@ -33,11 +33,12 @@ class _DetailEventState extends State<DetailEventPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Material(
-            color: Colors.blue,
+            color: Color.fromARGB(255, 0, 192, 134),
             child: SizedBox(
-              height: kToolbarHeight,
+              height: 50,
               width: 100,
               child: Center(
                 child: Text(
@@ -58,11 +59,11 @@ class _DetailEventState extends State<DetailEventPage> {
                     MaterialPageRoute(builder: (context) => BookEvent()));
               },
               child: SizedBox(
-                height: kToolbarHeight,
-                width: double.infinity,
+                height: 50,
+                width: 100,
                 child: Center(
                   child: Text(
-                    "Register",
+                    "Book This Event",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),

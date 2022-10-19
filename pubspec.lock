@@ -193,8 +193,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
-<<<<<<< HEAD
-=======
   path_drawing:
     dependency: transitive
     description:
@@ -209,7 +207,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
->>>>>>> 273771c225ba7e5c608f49ad21b5dda3a4c7bdc2
   path_provider:
     dependency: transitive
     description:

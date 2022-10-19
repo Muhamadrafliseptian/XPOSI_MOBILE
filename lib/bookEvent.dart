@@ -1,6 +1,6 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:samara_xposi/detailBook.dart';
+import 'package:samara_xposi/detailevent.dart';
 import 'package:samara_xposi/homepage.dart';
 import 'utils/utils.dart';
 
@@ -11,7 +11,7 @@ class BookEvent extends StatefulWidget {
   State<BookEvent> createState() => _BookEventState();
 }
 
-  enum Cash { samara, gopay }
+enum Cash { samara, gopay }
 
 class _BookEventState extends State<BookEvent> {
   Cash? _cash = Cash.samara;
@@ -31,9 +31,11 @@ class _BookEventState extends State<BookEvent> {
       child: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color.fromARGB(255, 107, 251, 111), Color.fromARGB(255, 13, 198, 254),
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 107, 251, 111),
+              Color.fromARGB(255, 13, 198, 254),
             ],
           ),
         ),
@@ -54,12 +56,20 @@ class _BookEventState extends State<BookEvent> {
                   child: Column(
                     children: [
                       Row(
-                        children: const [
-                          Icon(Icons.arrow_back,
-                            color: Colors.white,
-                            size: 30,
+                        children: [
+                          InkWell(
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailEvent()));
+                            },
                           ),
-                         
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
                             child: Text(
@@ -97,40 +107,40 @@ class _BookEventState extends State<BookEvent> {
                           ),
                         ),
                         child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 15,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: const [
+                                SizedBox(
+                                  width: 230,
+                                  child: Text(
+                                    "Mohon menyelesaikan pembayaran sebelum waktu habis",
+                                    style: TextStyle(
+                                        color: grey,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                  Row(
-                                    children: const [
-                                      SizedBox(
-                                        width: 230,
-                                        child: Text(
-                                          "Mohon menyelesaikan pembayaran sebelum waktu habis",
-                                          style: TextStyle(
-                                              color: grey,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
-                                        child: Text(
-                                          '13:41',
-                                          style: TextStyle(
-                                            color: red,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                ),
+                                Spacer(),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 10),
+                                  child: Text(
+                                    '13:41',
+                                    style: TextStyle(
+                                      color: red,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 20.0,
@@ -198,7 +208,7 @@ class _BookEventState extends State<BookEvent> {
                                 color: grey,
                                 fontSize: 16,
                               ),
-                              ),
+                            ),
                             const SizedBox(
                               height: 10.0,
                             ),
@@ -225,7 +235,6 @@ class _BookEventState extends State<BookEvent> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  
                                   const SizedBox(
                                     height: 2,
                                   ),
@@ -243,7 +252,8 @@ class _BookEventState extends State<BookEvent> {
                                       ),
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 15),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 15),
                                         child: Text(
                                           '15 Oktober 2022',
                                           style: TextStyle(
@@ -259,7 +269,8 @@ class _BookEventState extends State<BookEvent> {
                                     children: const [
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 15),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 15),
                                         child: Text(
                                           '00:00',
                                           style: TextStyle(
@@ -298,7 +309,7 @@ class _BookEventState extends State<BookEvent> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [ 
+                                children: [
                                   const SizedBox(
                                     height: 16,
                                   ),
@@ -316,7 +327,8 @@ class _BookEventState extends State<BookEvent> {
                                       ),
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 15),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 15),
                                         child: Text(
                                           'Reguler',
                                           style: TextStyle(
@@ -332,7 +344,8 @@ class _BookEventState extends State<BookEvent> {
                                     children: const [
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 15),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 15),
                                         child: Text(
                                           '1 X Rp35.000',
                                           style: TextStyle(
@@ -350,7 +363,6 @@ class _BookEventState extends State<BookEvent> {
                             const SizedBox(
                               height: 10.0,
                             ),
-                           
                           ],
                         ),
                       ),
@@ -387,14 +399,14 @@ class _BookEventState extends State<BookEvent> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                           Card(
-                            elevation: 1,
-                            child: Container(
-                              height: 0.05,
-                              width: double.infinity,
-                              color: grey,
+                            Card(
+                              elevation: 1,
+                              child: Container(
+                                height: 0.05,
+                                width: double.infinity,
+                                color: grey,
+                              ),
                             ),
-                          ),
                             const SizedBox(
                               height: 10.0,
                             ),
@@ -429,8 +441,7 @@ class _BookEventState extends State<BookEvent> {
                                       fontWeight: FontWeight.bold,
                                       height: 3,
                                     ),
-                                    ),
-                                  
+                                  ),
                                   const SizedBox(
                                     height: 2,
                                   ),
@@ -438,9 +449,7 @@ class _BookEventState extends State<BookEvent> {
                                     children: const [
                                       SizedBox(
                                         width: 100,
-                                        child: 
-                                        
-                                        Text(
+                                        child: Text(
                                           "Nomor HP",
                                           style: TextStyle(
                                               color: grey,
@@ -450,7 +459,8 @@ class _BookEventState extends State<BookEvent> {
                                       ),
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 10),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 10),
                                         child: Text(
                                           '15 Oktober 2022',
                                           style: TextStyle(
@@ -466,9 +476,7 @@ class _BookEventState extends State<BookEvent> {
                                     children: const [
                                       SizedBox(
                                         width: 100,
-                                        child: 
-                                        
-                                        Text(
+                                        child: Text(
                                           "Email",
                                           style: TextStyle(
                                               color: grey,
@@ -478,7 +486,8 @@ class _BookEventState extends State<BookEvent> {
                                       ),
                                       Spacer(),
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 3, top: 5, right: 10),
+                                        padding: EdgeInsets.only(
+                                            bottom: 3, top: 5, right: 10),
                                         child: Text(
                                           'gunawan@gmail.com',
                                           style: TextStyle(
@@ -496,11 +505,9 @@ class _BookEventState extends State<BookEvent> {
                             const SizedBox(
                               height: 10.0,
                             ),
-                            
                             const SizedBox(
                               height: 10.0,
                             ),
-                           
                           ],
                         ),
                       ),
@@ -540,17 +547,19 @@ class _BookEventState extends State<BookEvent> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ], 
+                              ],
                             ),
                             const SizedBox(
                               height: 1.0,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 32.5,),
+                              padding: const EdgeInsets.only(
+                                left: 32.5,
+                              ),
                               child: Row(
                                 children: const [
                                   Text(
-                                   "Harus diisi - ",
+                                    "Harus diisi - ",
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: green,
@@ -558,10 +567,9 @@ class _BookEventState extends State<BookEvent> {
                                     ),
                                   ),
                                   Text('1 detail'),
-                                ], 
+                                ],
                               ),
                             ),
-                            
                             const SizedBox(
                               height: 12.0,
                             ),
@@ -587,11 +595,12 @@ class _BookEventState extends State<BookEvent> {
                                     width: 15.0,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        children:  [
+                                        children: [
                                           SizedBox(
                                             width: 100,
                                             child: Text(
@@ -618,7 +627,11 @@ class _BookEventState extends State<BookEvent> {
                                               ),
                                             ),
                                             onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailBook()));
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          DetailBook()));
                                             },
                                           ),
                                         ],
@@ -667,7 +680,7 @@ class _BookEventState extends State<BookEvent> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ], 
+                              ],
                             ),
                             const SizedBox(
                               height: 12.0,
@@ -694,10 +707,10 @@ class _BookEventState extends State<BookEvent> {
                                     width: 15.0,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      
                                       Row(
                                         children: const [
                                           SizedBox(
@@ -726,7 +739,9 @@ class _BookEventState extends State<BookEvent> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: 10,),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
                                       Row(
                                         children: const [
                                           SizedBox(
@@ -756,42 +771,49 @@ class _BookEventState extends State<BookEvent> {
                                         ],
                                       ),
                                       const SizedBox(
-                              height: 15.0,
-                            ),
-                            Container(
-                              height: 70.0,
-                              width: MediaQuery.of(context).size.width * 0.69,
-                              decoration: BoxDecoration(
-                                color: secondary,
-                                // borderRadius: const BorderRadius.all(
-                                //   Radius.circular(
-                                //     16.0,
-                                //   ),
-                                // ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "Agar kami bisa terus meningkatkan kualitas layanan buatmu",
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          color: Colors.grey,
-                                          wordSpacing: 4,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 15,),
-                            Row(
+                                        height: 15.0,
+                                      ),
+                                      Container(
+                                        height: 70.0,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.69,
+                                        decoration: BoxDecoration(
+                                          color: secondary,
+                                          // borderRadius: const BorderRadius.all(
+                                          //   Radius.circular(
+                                          //     16.0,
+                                          //   ),
+                                          // ),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text(
+                                                "Agar kami bisa terus meningkatkan kualitas layanan buatmu",
+                                                style: TextStyle(
+                                                    fontSize: 11,
+                                                    color: Colors.grey,
+                                                    wordSpacing: 4,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Row(
                                         children: const [
                                           SizedBox(
                                             width: 150,
@@ -849,7 +871,8 @@ class _BookEventState extends State<BookEvent> {
                                     width: 15.0,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
@@ -907,13 +930,13 @@ class _BookEventState extends State<BookEvent> {
                           ),
                         ),
                         child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
                               children: const [
                                 Icon(
                                   Icons.check_circle,
@@ -921,7 +944,9 @@ class _BookEventState extends State<BookEvent> {
                                   color: Color.fromARGB(255, 8, 203, 12),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 10,),
+                                  padding: EdgeInsets.only(
+                                    left: 10,
+                                  ),
                                   child: Text(
                                     'Memesan berarti menyetujui ',
                                     style: TextStyle(
@@ -934,19 +959,19 @@ class _BookEventState extends State<BookEvent> {
                                 SizedBox(
                                   width: 120,
                                   child: Text(
-                                      'syarat & ketentuan',
-                                      style: TextStyle(
-                                        decoration:TextDecoration.underline,
-                                        color: Color.fromARGB(255, 12, 94, 13),
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                    'syarat & ketentuan',
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color.fromARGB(255, 12, 94, 13),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
                                     ),
+                                  ),
                                 ),
                               ],
                             ),
-                                ],
-                              ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 20.0,
@@ -962,348 +987,387 @@ class _BookEventState extends State<BookEvent> {
                         height: 20.0,
                       ),
                       Container(
-                          width: double.maxFinite,
-                          height:50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                             Row(
-                               children: [
-                                 Icon(
+                        width: double.maxFinite,
+                        height: 50,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
                                   Icons.monetization_on,
                                   size: 30,
                                   color: Color.fromARGB(255, 1, 230, 255),
-                                 ),
-                                 Padding(
-                                   padding: const EdgeInsets.only(left: 8.0),
-                                   child: Text(
-                                    'Samara Coins',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.blueGrey,
-                                    )),
-                                 ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5.0,),
-                                    child: IconButton(
-                                      icon: Icon(Icons.expand_more),
-                                      onPressed: () {
-                              showModalBottomSheet(
-                                  context: context,
-                                  shape: const RoundedRectangleBorder( // <-- SEE HERE
-                                    borderRadius: BorderRadius.vertical( 
-                                      top: Radius.circular(25.0),
-                                    ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text('Samara Coins',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.blueGrey,
+                                      )),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 5.0,
                                   ),
-                                  builder: (context) {
-                                    return SizedBox(
-                                      height: 800,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                         Center(
-                                          heightFactor: 1,
-                                           child: Icon(
-                                            Icons.horizontal_rule,
-                                            size: 35,
-                                            color: Color.fromARGB(255, 176, 176, 176),
-                                        ),
-                                         ),
-                                          SizedBox(height: 10,),
-                                          ListTile(
-                                            // leading: Icon(Icons.email),
-                                            title: Text('Pilih metode pembayaran',
-                                            style: TextStyle(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.bold,
-                                              ),
+                                  child: IconButton(
+                                    icon: Icon(Icons.expand_more),
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          shape: const RoundedRectangleBorder(
+                                            // <-- SEE HERE
+                                            borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(25.0),
                                             ),
                                           ),
-                                          
-                                          Container(
-                                            height: 250,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: BorderRadius.circular(5),
-                                              border: Border.all(color: Color(0xff263238), width: 0.1),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 20, right: 20, left: 20, bottom: 20),
-                                              child: 
-                                              Column(
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "Metode Pembayaran",
-                                                        style: TextStyle(
-                                                            fontSize: 20,
-                                                            fontWeight: FontWeight.w500,
-                                                            color: Colors.black),
-                                                      ),
-                                                      
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "Swipe kiri buat pilih metode utamamu",
-                                                        style: TextStyle(
-                                                            fontSize: 16,
-                                                            color: Colors.grey,
-                                                            fontWeight: FontWeight.w500,
-                                                            ),
-                                                      ),
-                                                      ],
-                                                    ),
-                                                     RadioListTile<Cash>(
-                                                      title: const Text('Samara Coins'),
-                                                      value: Cash.samara,
-                                                      groupValue: _cash,
-                                                      onChanged: (Cash? value) {
-                                                        setState(() {
-                                                          _cash = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<Cash>(
-                                                      title: const Text('Gopay'),
-                                                      value: Cash.gopay,
-                                                      groupValue: _cash,
-                                                      onChanged: (Cash? value) {
-                                                        setState(() {
-                                                          _cash = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                   
-                                                  ],
-                                                ),
-                                              ),
-                                              ),     
-                                              
-                                        ],
-                                      ),
-                                    );
-                                  });
-                                },
-
-                                    ),
-                                    
-                                  ),
-                                  Spacer(),
-                                  
-                                       Card(
-                                        elevation: 3,
-                                         child: Container(
-                                            width: 100,
-                                            decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  border: Border.all(color: Colors.grey, width: 1.0),
-                                                ),
-                                          child: Column(
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets.all(5.5),
-                                                    child: Text(
-                                                      'Voucher',
-                                                    style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.black,
-                                                      wordSpacing: 2,
-                                                    )),
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets.only(left:8.0),
+                                          builder: (context) {
+                                            return SizedBox(
+                                              height: 800,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: <Widget>[
+                                                  Center(
+                                                    heightFactor: 1,
                                                     child: Icon(
+                                                      Icons.horizontal_rule,
+                                                      size: 35,
+                                                      color: Color.fromARGB(
+                                                          255, 176, 176, 176),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  ListTile(
+                                                    // leading: Icon(Icons.email),
+                                                    title: Text(
+                                                      'Pilih metode pembayaran',
+                                                      style: TextStyle(
+                                                        fontSize: 22,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    height: 250,
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xff263238),
+                                                          width: 0.1),
+                                                    ),
+                                                    child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 20,
+                                                          right: 20,
+                                                          left: 20,
+                                                          bottom: 20),
+                                                      child: Column(
+                                                        children: [
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                "Metode Pembayaran",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: Colors
+                                                                        .black),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                "Swipe kiri buat pilih metode utamamu",
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  color: Colors
+                                                                      .grey,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          RadioListTile<Cash>(
+                                                            title: const Text(
+                                                                'Samara Coins'),
+                                                            value: Cash.samara,
+                                                            groupValue: _cash,
+                                                            onChanged:
+                                                                (Cash? value) {
+                                                              setState(() {
+                                                                _cash = value;
+                                                              });
+                                                            },
+                                                          ),
+                                                          RadioListTile<Cash>(
+                                                            title: const Text(
+                                                                'Gopay'),
+                                                            value: Cash.gopay,
+                                                            groupValue: _cash,
+                                                            onChanged:
+                                                                (Cash? value) {
+                                                              setState(() {
+                                                                _cash = value;
+                                                              });
+                                                            },
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          });
+                                    },
+                                  ),
+                                ),
+                                Spacer(),
+                                Card(
+                                  elevation: 3,
+                                  child: Container(
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Colors.grey, width: 1.0),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(5.5),
+                                              child: Text('Voucher',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black,
+                                                    wordSpacing: 2,
+                                                  )),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0),
+                                              child: Icon(
                                                 Icons.arrow_circle_right,
                                                 size: 20,
                                                 color: Colors.red,
                                               ),
-                                                  ),
-                                                ],
-                                              ),
-                                              
-                                            ],
-                                          ),
-                                                                             ),
-                                       ),
-                               ],
-                             ),
-                            ],
-                          ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 15.0,
                       ),
                       Container(
-                       
-                          width: double.maxFinite,
-                          height: 65,
-                          child:
-                          //  ElevatedButton(
-                          //   style: ElevatedButton.styleFrom(
-                          //     backgroundColor: Color.fromARGB(255, 81, 235, 86),
-                          //     shape: RoundedRectangleBorder(
-                          //     borderRadius: BorderRadius.circular(50), // <-- Radius
-                          //   ),
-                          //   ),
-                          //   child: Text(
-                          //     "Book Your Event",
-                          //      style: TextStyle(
-                          //       color: Colors.white,
-                          //       fontSize: 18,
-                          //       fontWeight: FontWeight.w700,
-                          //     ),
-                          //   ),
-                          //    onPressed: () {
-                          //     showModalBottomSheet(
-                          //         context: context,
-                          //           builder: (context) {
-                          //           return SizedBox(
-                          //             height: 200,
-                          //             child: Column(
-                          //               crossAxisAlignment: CrossAxisAlignment.start,
-                          //               mainAxisSize: MainAxisSize.min,
-                          //               children: const <Widget>[
-                          //                 Text('dasd'),
-                          //               ],
-                          //             ),
-                          //           );
-                          //         });
-                          //   },
-                          // ),
-                          ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                backgroundColor: Color.fromARGB(255, 81, 235, 86),
-                                shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50), // <-- Radius
-                              ),
+                        width: double.maxFinite,
+                        height: 65,
+                        child:
+                            //  ElevatedButton(
+                            //   style: ElevatedButton.styleFrom(
+                            //     backgroundColor: Color.fromARGB(255, 81, 235, 86),
+                            //     shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(50), // <-- Radius
+                            //   ),
+                            //   ),
+                            //   child: Text(
+                            //     "Book Your Event",
+                            //      style: TextStyle(
+                            //       color: Colors.white,
+                            //       fontSize: 18,
+                            //       fontWeight: FontWeight.w700,
+                            //     ),
+                            //   ),
+                            //    onPressed: () {
+                            //     showModalBottomSheet(
+                            //         context: context,
+                            //           builder: (context) {
+                            //           return SizedBox(
+                            //             height: 200,
+                            //             child: Column(
+                            //               crossAxisAlignment: CrossAxisAlignment.start,
+                            //               mainAxisSize: MainAxisSize.min,
+                            //               children: const <Widget>[
+                            //                 Text('dasd'),
+                            //               ],
+                            //             ),
+                            //           );
+                            //         });
+                            //   },
+                            // ),
+                            ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 81, 235, 86),
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(50), // <-- Radius
                             ),
-                             onPressed: () {
-                              showModalBottomSheet(
-                                  context: context,
-                                  shape: const RoundedRectangleBorder( // <-- SEE HERE
-                                    borderRadius: BorderRadius.vertical( 
-                                      top: Radius.circular(25.0),
-                                    ),
+                          ),
+                          onPressed: () {
+                            showModalBottomSheet(
+                                context: context,
+                                shape: const RoundedRectangleBorder(
+                                  // <-- SEE HERE
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(25.0),
                                   ),
-                                  builder: (context) {
-                                    return SizedBox(
-                                      height: 800,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                         Center(
+                                ),
+                                builder: (context) {
+                                  return SizedBox(
+                                    height: 800,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        Center(
                                           heightFactor: 1,
-                                           child: Icon(
+                                          child: Icon(
                                             Icons.horizontal_rule,
                                             size: 35,
-                                            color: Color.fromARGB(255, 176, 176, 176),
+                                            color: Color.fromARGB(
+                                                255, 176, 176, 176),
+                                          ),
                                         ),
-                                         ),
-                                          SizedBox(height: 10,),
-                                          ListTile(
-                                            // leading: Icon(Icons.email),
-                                            title: Text('Pilih metode pembayaran',
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        ListTile(
+                                          // leading: Icon(Icons.email),
+                                          title: Text(
+                                            'Pilih metode pembayaran',
                                             style: TextStyle(
                                               fontSize: 22,
                                               fontWeight: FontWeight.bold,
-                                              ),
                                             ),
                                           ),
-                                          
-                                          Container(
-                                            height: 250,
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: BorderRadius.circular(5),
-                                              border: Border.all(color: Color(0xff263238), width: 0.1),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 20, right: 20, left: 20, bottom: 20),
-                                              child: 
-                                              Column(
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "Metode Pembayaran",
-                                                        style: TextStyle(
-                                                            fontSize: 20,
-                                                            fontWeight: FontWeight.w500,
-                                                            color: Colors.black),
-                                                      ),
-                                                      
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        "Swipe kiri buat pilih metode utamamu",
-                                                        style: TextStyle(
-                                                            fontSize: 16,
-                                                            color: Colors.grey,
-                                                            fontWeight: FontWeight.w500,
-                                                            ),
-                                                      ),
-                                                      ],
+                                        ),
+                                        Container(
+                                          height: 250,
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Color(0xff263238),
+                                                width: 0.1),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 20,
+                                                right: 20,
+                                                left: 20,
+                                                bottom: 20),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Metode Pembayaran",
+                                                      style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color: Colors.black),
                                                     ),
-                                                     RadioListTile<Cash>(
-                                                      title: const Text('Samara Coins'),
-                                                      value: Cash.samara,
-                                                      groupValue: _cash,
-                                                      onChanged: (Cash? value) {
-                                                        setState(() {
-                                                          _cash = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                    RadioListTile<Cash>(
-                                                      title: const Text('Gopay'),
-                                                      value: Cash.gopay,
-                                                      groupValue: _cash,
-                                                      onChanged: (Cash? value) {
-                                                        setState(() {
-                                                          _cash = value;
-                                                        });
-                                                      },
-                                                    ),
-                                                   
                                                   ],
                                                 ),
-                                              ),
-                                              ),     
-                                              
-                                        ],
-                                      ),
-                                    );
-                                  });
-                                },
-                              child: Text(
-                              "Book Your Event",
-                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "Swipe kiri buat pilih metode utamamu",
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        color: Colors.grey,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                RadioListTile<Cash>(
+                                                  title: const Text(
+                                                      'Samara Coins'),
+                                                  value: Cash.samara,
+                                                  groupValue: _cash,
+                                                  onChanged: (Cash? value) {
+                                                    setState(() {
+                                                      _cash = value;
+                                                    });
+                                                  },
+                                                ),
+                                                RadioListTile<Cash>(
+                                                  title: const Text('Gopay'),
+                                                  value: Cash.gopay,
+                                                  groupValue: _cash,
+                                                  onChanged: (Cash? value) {
+                                                    setState(() {
+                                                      _cash = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            "Book Your Event",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
+                        ),
                       ),
                       // SizedBox(height: 20,),
                       // Container(
