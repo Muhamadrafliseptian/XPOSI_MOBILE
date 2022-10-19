@@ -33,6 +33,43 @@ class _DetailEventState extends State<DetailEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Row(
+        children: [
+          Material(
+            color: Colors.blue,
+            child: SizedBox(
+              height: kToolbarHeight,
+              width: 100,
+              child: Center(
+                child: Text(
+                  'Free',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+              child: Material(
+            color: Color.fromARGB(255, 23, 0, 171),
+            child: InkWell(
+              onTap: () {},
+              child: SizedBox(
+                height: kToolbarHeight,
+                width: double.infinity,
+                child: Center(
+                  child: Text(
+                    "Register",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ))
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(20.0),
         children: [
