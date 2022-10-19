@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/screen/autentikasi/register.dart';
-import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/bookEvent.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {
@@ -33,6 +32,42 @@ class _DetailEventState extends State<DetailEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       bottomNavigationBar: Row(
+        children: [
+          Material(
+            color: Colors.blue,
+            child: SizedBox(
+              height: kToolbarHeight,
+              width: 100,
+              child: Center(
+                child: Text(
+                  'Free',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(child: Material(
+            color: Colors.blueAccent,
+            child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>BookEvent()));
+              },
+              child: SizedBox(
+                height: kToolbarHeight,
+                width: double.infinity,
+                child: Center(
+                  child: Text("Register", style: TextStyle(fontWeight: FontWeight.bold, color:Colors.white),),
+                ),
+              ),
+            ),
+          ))
+        ],
+       ),
       body: ListView(
         padding: const EdgeInsets.all(20.0),
         children: [
