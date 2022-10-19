@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/screen/autentikasi/register.dart';
-import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/bookEvent.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {
@@ -52,9 +51,12 @@ class _DetailEventState extends State<DetailEventPage> {
           ),
           Expanded(
               child: Material(
-            color: Color.fromARGB(255, 23, 0, 171),
+            color: Colors.blueAccent,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => BookEvent()));
+              },
               child: SizedBox(
                 height: kToolbarHeight,
                 width: double.infinity,
