@@ -1,37 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:bottom_navigation_bar/bottom_navigation_bar.dart';
-import 'package:samara_xposi/components/cardTicket.dart';
-import 'package:samara_xposi/detailevent.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:samara_xposi/components/cardEvent.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
-import 'package:samara_xposi/components/cardExhibitor.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
-import 'components/cardEvent.dart';
-
-void main() {
-  runApp(const HomePage());
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(),
-      home: const MyHomePage(title: ''),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 final List Event = [
@@ -45,306 +22,189 @@ final List Event = [
   ['Pestapora', 'assets/images/testSeminar3.jpg', '28', 'read']
 ];
 
-final List<String> imgList = [
-  'assets/images/testSeminar2.jpg',
-  'assets/images/testSeminar3.jpg',
-  'assets/images/testSeminar.png',
-];
-
-final List<Widget> imageSliders = imgList
-    .map((item) => Container(
-          margin: const EdgeInsets.all(5.0),
-          child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(12)),
-              child: Stack(
-                children: <Widget>[
-                  Image.asset(item, fit: BoxFit.cover, width: 600.0),
-                  Positioned(
-                    bottom: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(200, 0, 0, 0),
-                            Color.fromARGB(0, 0, 0, 0)
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                        ),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 10.0),
-                    ),
-                  ),
-                ],
-              )),
-        ))
-    .toList();
-
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        //Floating action button on Scaffold
-        onPressed: () {
-          //code to execute on button press
-        },
-        child: Icon(Icons.qr_code), //icon inside button
-      ),
-
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      //floating action button position to center
-
-      bottomNavigationBar: BottomAppBar(
-        //bottom navigation bar on scaffold
-        color: Colors.redAccent,
-        shape: CircularNotchedRectangle(), //shape of notch
-        notchMargin:
-            5, //notche margin between floating button and bottom appbar
-        child: Row(
-          //children inside bottom appbar
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.white,
+      backgroundColor: Colors.grey[50],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          padding: EdgeInsets.symmetric(vertical: 24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 64,
+                      width: 64,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                            "assets/images/burger.png",
+                          )),
+                          shape: BoxShape.circle,
+                          border: Border.all()),
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Rafli",
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Eits, kita ketemu lagi nih",
+                        )
+                      ],
+                    ),
+                    Expanded(child: SizedBox()),
+                    Icon(Icons.notifications_none_rounded, size: 32)
+                  ],
+                ),
               ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
+              Container(
+                height: 56,
+                width: MediaQuery.of(context).size.width - 48,
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                margin: const EdgeInsets.all(24),
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.search),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Search any events, concert, stand up, seminar, etc.",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
               ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.print,
-                color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 48,
+                      width: (MediaQuery.of(context).size.width - 48 - 20) / 3,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.blue,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Latest",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 48,
+                      width: (MediaQuery.of(context).size.width - 48 - 20) / 3,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.blue,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Free",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 48,
+                      width: (MediaQuery.of(context).size.width - 48 - 20) / 3,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.blue,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Popular",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
               ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.people,
-                color: Colors.white,
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                  "Popular Event",
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
-              onPressed: () {},
-            ),
-          ],
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                  height: 145,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: Event.length,
+                      itemBuilder: (context, index) {
+                        return CardEvent(
+                          EventName: Event[index][0],
+                          EventImage: Event[index][1],
+                          EventDate: Event[index][2],
+                          EventDetail: Event[index][3],
+                        );
+                      })),
+              SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Special For You",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    Text(
+                      "Explore All",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.blue),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: [
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 25, top: 25, right: 25),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Hi, Rafli",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "22 Juni 2022",
-                          ),
-                        ],
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.3),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                              offset: const Offset(
-                                  0, 3), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: const Icon(
-                          Icons.notifications,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 25.0,
-              right: 25.0,
-            ),
-            child: Container(
-                padding: const EdgeInsets.only(
-                  left: 5.0,
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(10.0)),
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: 'Search Event',
-                      border: InputBorder.none,
-                      fillColor: Colors.grey.withOpacity(0.5),
-                      prefixIcon: const Icon(Icons.search, color: Colors.grey)),
-                )),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: 100,
-            decoration: BoxDecoration(),
-            child: CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
-              ),
-              items: imageSliders,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 25, right: 25),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Event Terbaru",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Lihat Semua",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-              height: 145,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: Event.length,
-                  itemBuilder: (context, index) {
-                    return CardEvent(
-                      EventName: Event[index][0],
-                      EventImage: Event[index][1],
-                      EventDate: Event[index][2],
-                      EventDetail: Event[index][3],
-                    );
-                  })),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 25, right: 25),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Tiket Terbaru",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-              height: 145,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return CardEvent(
-                      EventName: 'PT Satya Amarta',
-                      EventImage: 'assets/images/testSeminar.png',
-                      EventDate: '24 Juli',
-                      EventDetail: 'Read More',
-                    );
-                  })),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 25, right: 25, top: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "Exhibitor",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-              height: 80,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return CardTicket(
-                      TicketName:
-                          'PT Satya Amartaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                      TicketImage: 'assets/images/splashscreen.png',
-                    );
-                  })),
-        ],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

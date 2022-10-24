@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/detailBook.dart';
-import 'package:samara_xposi/detailevent.dart';
+import 'package:samara_xposi/detail_book.dart';
+import 'package:samara_xposi/detail_event.dart';
 import 'package:samara_xposi/homepage.dart';
 import 'utils/utils.dart';
 

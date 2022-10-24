@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:samara_xposi/detail_book.dart';
+import 'package:samara_xposi/homepage.dart';
 import 'package:samara_xposi/screen/autentikasi/OTP.dart';
 import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
 import 'package:samara_xposi/screen/autentikasi/register.dart';
@@ -25,13 +27,13 @@ class StartState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 1);
     return Timer(duration, route);
   }
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => OTP()));
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   initScreen(BuildContext context) {
