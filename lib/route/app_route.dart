@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:samara_xposi/homepage.dart';
 import 'package:samara_xposi/route/app_route_name.dart';
 import 'package:samara_xposi/screen/book_event/detail_event.dart';
 
@@ -9,7 +8,7 @@ class AppRoute {
       case AppRouteName.detailEvent:
         return PageRouteBuilder(
           settings: settings,
-          pageBuilder: (_, __, ___) => const HomePage(),
+          pageBuilder: (_, __, ___) => const DetailEvent(),
           transitionDuration: const Duration(milliseconds: 400),
           transitionsBuilder: (_, animation, __, child) {
             return SlideTransition(

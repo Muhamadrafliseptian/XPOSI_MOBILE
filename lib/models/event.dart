@@ -1,5 +1,3 @@
-import 'package:samara_xposi/screen/book_event/detail_event.dart';
-
 class CardEvent {
   final String eventimage;
   final String eventname;
@@ -88,4 +86,5 @@ final List specialEvent = [
       specialeventlocation: "Jakarta",
       specialeventprice: 20),
 ];
-final detailhealth = eventXposi.reversed.toList();
+
+final detailTechnology = eventXposi.reversed.toList();
