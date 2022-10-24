@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
-import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/page_screen.dart';
 import 'package:samara_xposi/homepage.dart';
-import 'package:samara_xposi/screen/autentikasi/resetPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/reset_password.dart';
 
 void main() {
   runApp(const Forgot());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/screen/profile/editprofile.dart';
+import 'package:samara_xposi/screen/profile/edit_profile.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {

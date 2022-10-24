@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:samara_xposi/components/cardEvent.dart';
+import 'package:samara_xposi/components/card_event.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
 
 class HomePage extends StatefulWidget {

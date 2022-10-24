@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:samara_xposi/detail_book.dart';
 import 'package:samara_xposi/homepage.dart';
 import 'package:samara_xposi/screen/autentikasi/OTP.dart';
-import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/page_screen.dart';
 import 'package:samara_xposi/screen/autentikasi/register.dart';
-import 'package:samara_xposi/screen/autentikasi/resetPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/reset_password.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

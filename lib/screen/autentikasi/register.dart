@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
 import 'package:samara_xposi/screen/autentikasi/register.dart';
-import 'package:samara_xposi/screen/autentikasi/pagescreen.dart';
+import 'package:samara_xposi/screen/autentikasi/page_screen.dart';
 import 'package:samara_xposi/homepage.dart';
 
 void main() {

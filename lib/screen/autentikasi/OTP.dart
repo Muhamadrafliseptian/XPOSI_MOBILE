@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_shimmer/flutter_shimmer.dart';
-import 'package:samara_xposi/screen/autentikasi/fogotPassword.dart';
+import 'package:samara_xposi/screen/autentikasi/fogot_password.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
 
 void main() {
