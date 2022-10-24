@@ -1,113 +1,117 @@
-// ignore_for_file: non_constant_identifier_names
+import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/detail_event.dart';
+import 'package:samara_xposi/models/event.dart';
+import 'package:samara_xposi/route/app_route_name.dart';
+import 'package:samara_xposi/route/app_route.dart';
 
 class CardEvent extends StatelessWidget {
-  final String EventName;
-  final String EventDetail;
-  final String EventDate;
-  final String EventImage;
-
-  CardEvent({
-    required this.EventName,
-    required this.EventImage,
-    required this.EventDetail,
-    required this.EventDate,
-  });
+  const CardEvent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 10,
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(5),
-        child: Container(
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-              color: Color.fromARGB(255, 24, 24, 77),
-              spreadRadius: 2, //spread radius
-              blurRadius: 2, // blur radius
-              offset: Offset(0, 2),
-            )
-          ]),
-          width: 110,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: 320,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        itemCount: eventXposi.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                AppRouteName.detailEvent,
+                arguments: eventXposi[index],
+              );
+            },
+            child: Container(
+              height: 320,
+              width: MediaQuery.of(context).size.width * 0.6,
+              margin: const EdgeInsets.only(right: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    height: 100,
-                    child: Image.asset(
-                      EventImage,
-                      height: 100,
-                      width: 110,
-                      fit: BoxFit.cover,
+                    height: 220,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(16),
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          eventXposi[index].eventimage,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                     ),
+                    padding: const EdgeInsets.all(16),
                   ),
+                  Container(
+                    height: 100,
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                eventXposi[index].eventname,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Icon(
+                                    Icons.place,
+                                    color: Colors.red,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(eventXposi[index].eventlocation),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "\$${eventXposi[index].eventprice}",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(
+                                      color: Colors.black,
+                                    ),
+                              ),
+                              const TextSpan(text: "\n"),
+                              TextSpan(
+                                text: "/Person",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
-              SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7),
-                child: InkWell(
-                  child: Text(
-                    EventName,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 11,
-                    ),
-                    overflow: TextOverflow.fade,
-                    maxLines: 2,
-                    softWrap: false,
-                  ),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            const DetailEvent()));
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7),
-                child: Text(
-                  EventDate,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 8,
-                  ),
-                  overflow: TextOverflow.fade,
-                  maxLines: 2,
-                  softWrap: false,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7),
-                child: Text(
-                  EventDetail,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 8,
-                  ),
-                  overflow: TextOverflow.fade,
-                  maxLines: 2,
-                  softWrap: false,
-                ),
-              )
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

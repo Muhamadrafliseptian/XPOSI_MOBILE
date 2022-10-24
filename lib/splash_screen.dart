@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/detail_book.dart';
+import 'package:samara_xposi/screen/book_event/detail_book.dart';
 import 'package:samara_xposi/homepage.dart';
 import 'package:samara_xposi/screen/autentikasi/OTP.dart';
 import 'package:samara_xposi/screen/autentikasi/page_screen.dart';

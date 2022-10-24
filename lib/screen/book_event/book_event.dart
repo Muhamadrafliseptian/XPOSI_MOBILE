@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:samara_xposi/detail_book.dart';
-import 'package:samara_xposi/detail_event.dart';
+import 'package:samara_xposi/screen/book_event/detail_book.dart';
+import 'package:samara_xposi/screen/book_event/detail_event.dart';
 import 'package:samara_xposi/homepage.dart';
-import 'utils/utils.dart';
+import '../../utils/utils.dart';
 
 class BookEvent extends StatefulWidget {
   const BookEvent({super.key});
@@ -67,7 +67,7 @@ class _BookEventState extends State<BookEvent> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => DetailEvent()));
+                                      builder: (context) => DetailBook()));
                             },
                           ),
                           Padding(

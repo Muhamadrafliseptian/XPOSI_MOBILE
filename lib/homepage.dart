@@ -1,7 +1,10 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:samara_xposi/components/card_event.dart';
+import 'package:samara_xposi/components/card_exhibitor.dart';
 import 'package:samara_xposi/screen/autentikasi/login.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,17 +13,6 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
-final List Event = [
-  ['Pestapora', 'assets/images/testSeminar.png', '23 Juli 2022', 'read'],
-  [
-    'Pestapora',
-    'assets/images/testSeminar2.jpg',
-    '21 Oktober wwwwwwwwwwwwwwwwwwwwwwwwwwwww2022',
-    'read'
-  ],
-  ['Pestapora', 'assets/images/testSeminar3.jpg', '28', 'read']
-];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -159,27 +151,14 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  "Popular Event",
+                  "Health Event",
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
               SizedBox(
                 height: 16,
               ),
-              Container(
-                  height: 145,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
-                      itemCount: Event.length,
-                      itemBuilder: (context, index) {
-                        return CardEvent(
-                          EventName: Event[index][0],
-                          EventImage: Event[index][1],
-                          EventDate: Event[index][2],
-                          EventDetail: Event[index][3],
-                        );
-                      })),
+              const CardEvent(),
               SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -187,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Special For You",
+                      "Technology Event",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
@@ -201,6 +180,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 16),
+              const TechEvent()
             ],
           ),
         ),

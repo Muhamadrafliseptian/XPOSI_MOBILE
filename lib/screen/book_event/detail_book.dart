@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:samara_xposi/book_event.dart';
+import 'package:samara_xposi/screen/book_event/book_event.dart';
 import 'package:samara_xposi/utils/utils.dart';
 
 class DetailBook extends StatefulWidget {
